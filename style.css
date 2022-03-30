@@ -1,0 +1,138 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+body{
+    background: #f5f5f5;
+}
+header{
+    height: auto;
+    background: #f5f5f5;
+    display: flex;
+    font-size: 20px;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: Arial, Helvetica, sans-serif;
+    border-bottom: 1px solid black;
+}
+header div{
+    color: white;
+    background-color: #155a1500;
+    width: 100%;
+    height: auto;
+    display: flex;
+    font-size: 17px;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+header a{
+    text-decoration: none;
+}
+main{
+    background: rgb(255,199,0);
+    background: linear-gradient(180deg, rgba(255,199,0,1) 0%, rgba(245,245,245,1) 100%);
+    font-family: Arial, Helvetica, sans-serif;
+ 
+    
+}
+main a{
+    text-decoration: none;
+}
+.kote {
+    border: 1px solid red;
+    border-radius: 20px;
+  
+}
+.kote-money {
+ margin-left: 150px;
+  
+}
+footer{
+    background: #ffc700;
+    font-family: Arial, Helvetica, sans-serif;
+    border-top: 1px solid #000000;
+}
+footer a{
+    text-decoration: none;
+}
+@media (max-width: 800px) {
+    img{
+        width: 100%;
+        border-radius: 10px;
+        border: 1px solid #000000;
+    } 
+}
+@media (min-width: 801px) {
+    img{
+        width: 500px;
+        border-radius: 10px;
+        border: 1px solid #000000;
+    } 
+}
+form{
+    background: url("kot-prosit-est.jpg");
+    background-size: 100%;
+    background-blend-mode: multiply;
+    background-color: #00000034;
+ width: 250px;
+ height: 250px;
+    padding: 2%;
+    border-radius: 10px;
+    border: #000000 solid 1px;
+    font-family: 'Yandex Sans Display';
+    font-weight: bold;
+    font-style: normal;
+    color: #000000;
+    margin: 0px auto;
+  
+}
+footer img{
+    width: 100px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+}
+.re{
+   color: #ffffff; 
+    width: 100%;
+    height: auto;
+    display: flex;
+    
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.re a{
+    color: #000000;
+}
+button{
+    
+    text-align: center;
+
+}
+.uroks{
+    text-align: center;
+}
+h1{
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+
+.informer{
+    margin: 0px auto;
+}
+INPUT[type="text"] {
+    background-color: #ffffff83;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+   }
+
+INPUT[type="number"] {
+    background-color: #ffffff83;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+   }
