@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 2. Применение функций</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(87562215, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/87562215" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+    <!-- Спутник аналитка -->
+    <script type="text/javascript">
+        (function (d, t, p) {
+            var j = d.createElement(t); j.async = true; j.type = "text/javascript";
+            j.src = ("https:" == p ? "https:" : "http:") + "//stat.sputnik.ru/cnt.js";
+            var s = d.getElementsByTagName(t)[0]; s.parentNode.insertBefore(j, s);
+        })(document, "script", document.location.protocol);
+    </script>
+    <!-- Спутник аналитка -->
+
+</head>
+
+<body>
+    <header><a href="/">Главная</a> <a href="/uroks">Уроки</a></header>
+    <main>
+
+        <div class="container">
+            <h1>Урок 2. Применение функций: "=СЛЧИС()", "=ЦЕЛОЕ()", "=СРЗНАЧ()" и "=СУММ()" </h1>
+            <p>1. Откроем Excel и создадим новый документ </p>
+            <p>2. Выделяем таблицу размером 5х22 (Рис 1) </p>
+            <img src="u2/1.png" alt="Открываем Пуск и вбиваем Excel 2010 и открываем его">
+            <figcaption>Рис 1</figcaption>
+            <p>2. Теперь вписываем числа от 1 до 99. Чтобы не вписывать самостоятельно мрименем функцию:
+                <b>"=СЛЧИС()"</b> (Рис 2). Но у нас получаются числа от 0 до 1, чтобы это исправить нужна функия вида:
+                <b>"=СЛЧИС()*(b-a)+a"</b>, где <b>a</b> и <b>b</b> - минимальное и максимальное значение. Наша функия
+                будет иметь вид тогда: <b>"=СЛЧИС()*(99-1)+1"</b> (Рис 2.1). Но цифры после запятой портят весь вид. Для
+                убирания, цифр полсе запятой, есть функция <b>"=ЦЕЛОЕ()"</b>. И тогда наша функция случайных числе
+                будет: <b>"=ЦЕЛОЕ(СЛЧИС()*(99-1)+1)"</b> (Ри 2.2). <b>ВНМАНИЕ!!! при каждом пересчете листа
+                    возвращается новое случайное
+                    вещественное число </b>
+            </p>
+            <img src="u2/2.png" alt="">
+            <figcaption>Рис 2</figcaption>
+            <img src="u2/2.1.png" alt="">
+            <figcaption>Рис 2.1</figcaption>
+            <img src="u2/2.2.png" alt="">
+            <figcaption>Рис 2.2</figcaption>
+            <p>3. Теперь узнаем среднее арифметическое. Для этого в яч B24 пишем формулу <b>"=СРЗНАЧ(B2:B23)"</b> (Рис 3)  и получим (Рис 3.1)</p>
+            <img src="u2/3.0.png" alt="">
+            <figcaption>Рис 3</figcaption>
+            <img src="u2/3.1.png" alt="">
+            <figcaption>Рис 3.1</figcaption>
+            <p>4. Далее копируем из яч <b>B24</b> и вставляем в яч <b>C24</b>, <b>D24</b>,<b>E24</b> и <b>F24</b></p>
+            <img src="u2/4.0.png" alt="">
+            <figcaption>Рис 4</figcaption>
+            <p>5.  Теперь узнаем сумму. Для этого в яч B25 пишем формулу <b>"=СУММ(B2:B23)"</b> (Рис 5)  и получим (Рис 5.1)</p>
+            <img src="u2/5.0.png" alt="Рис 5">
+            <figcaption>Рис 5</figcaption>
+            <img src="u2/5.1.png" alt="Рис 5.1">
+            <figcaption>Рис 5.1</figcaption>
+            <p>6. Далее копируем из яч <b>B25</b> и вставляем в яч <b>C25</b>, <b>D25</b>, <b>E25</b> и <b>F25</b></p>
+            <img src="u2/6.0.png" alt="Рис 6">
+            <figcaption>Рис 6</figcaption>
+            <p>7. Можно и курасить нашу таблицу. Вот наш пример на рисунке 7</p>
+            <img src="u2/7.0.png" alt="Рис 6">
+            <figcaption>Рис 7</figcaption>
+            <br>
+            <p>P. S. Если вы здесь увидите ошибку, то делайте скрин, где ошибка и отправляйте на <a
+                    href="mailto:bobyorstroimarket@yandex.ru" target="_blank">bobyorstroimarket@yandex.ru</a> </p>
+
+                    <h2>Благодарность</h2>
+                    <form method="POST" action="https://yoomoney.ru/quickpay/confirm.xml">
+                        <input type="hidden" name="receiver" value="4100116774485382"/>
+                        <input type="hidden" name="formcomment" value="Для развития сайта или на пивас админам"/>
+                        <input type="hidden" name="short-dest" value="Для развития сайта или на пивас админам"/>
+                        <input type="hidden" name="label" value="Для развития сайта или на пивас админам"/>
+                        <input type="hidden" name="quickpay-form" value="donate"/>
+                        <input type="text" name="targets" value="На чай админам"/>
+                        <input type="number" name="sum" value="21" data-type="number"/>
+                        <br>
+                       
+                        <input type="hidden" name="need-fio" value="true"/>
+                        <input type="hidden" name="need-email" value="true"/>
+                        <input type="hidden" name="need-phone" value="false"/>
+                        <input type="hidden" name="need-address" value="false"/>
+                        <label><input type="radio" name="paymentType" value="PC"/>ЮMoney</label>
+                        <br>
+                        <label><input type="radio" name="paymentType" value="AC"/>Банковской картой</label>
+                        <br>
+                        <input type="submit" value="Перевести"/>
+                    </form>
+                
+                    <hr>
+        
+
+            <div class="uroks">
+                <a href="1.html"><button>&larr;</button></a> 2 <a href="index.html"><button>&rarr;</button></a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            &copy; <b>2020-2022 Общественная организация "Сталин на Post Soviet Space"</b> <br>Данный сайт
+            поддерживается на всех браузерах, даже на Inernet Explorer
+            <hr>
+            <div class="re">
+                <a href="/">Главная</a> <a href="/privacy/">Политика Конфиденциальности</a> <a href="/uroks/">Уроки</a>
+            </div>
+            <hr>
+            <!-- Yandex.Metrika informer -->
+            <a href="https://metrika.yandex.ru/stat/?id=87562215&amp;from=informer" target="_blank" rel="nofollow"><img
+                    src="https://informer.yandex.ru/informer/87562215/3_0_FFE720FF_FFC700FF_0_pageviews"
+                    style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика"
+                    title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" /></a>
+            <!-- /Yandex.Metrika informer -->
+            <span id="sputnik-informer"></span>
+        </div>
+        <br>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
