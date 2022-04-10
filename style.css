@@ -1,11 +1,13 @@
-*{
+* {
     margin: 0%;
     padding: 0%;
 }
-body{
+
+body {
     background: #f5f5f5;
 }
-header{
+
+header {
     height: auto;
     background: #f5f5f5;
     display: flex;
@@ -16,7 +18,8 @@ header{
     font-family: Arial, Helvetica, sans-serif;
     border-bottom: 1px solid black;
 }
-header div{
+
+header div {
     color: white;
     background-color: #155a1500;
     width: 100%;
@@ -27,57 +30,75 @@ header div{
     align-items: center;
     flex-wrap: wrap;
 }
-header a{
+
+header a {
     text-decoration: none;
 }
-main{
-    background: rgb(255,199,0);
-    background: linear-gradient(180deg, rgba(255,199,0,1) 0%, rgba(245,245,245,1) 100%);
+
+main {
+     background-image: url("Win-XP.jpg");      
+ background-position: center center;      
+background-repeat: no-repeat;      
+/* Фон зафиксирован в области просмотра и потому не двигается, когда высота контента превышает высоту изображения */   background-attachment: fixed;      
+   background-size: cover;      
+  background-color: #464646; 
+  /*  background: rgb(255, 199, 0);
+    background: linear-gradient(180deg, rgba(255, 199, 0, 1) 0%, rgba(245, 245, 245, 1) 100%);*/
     font-family: Arial, Helvetica, sans-serif;
- 
-    
+
+
 }
-main a{
+
+main a {
     text-decoration: none;
+
 }
+
 .kote {
     border: 1px solid red;
     border-radius: 20px;
-  
+
 }
+
 .kote-money {
- margin-left: 150px;
-  
+    margin-left: 150px;
+
 }
-footer{
+
+footer {
     background: #ffc700;
     font-family: Arial, Helvetica, sans-serif;
     border-top: 1px solid #000000;
 }
-footer a{
+
+footer a {
     text-decoration: none;
 }
+
 @media (max-width: 800px) {
-    img{
+    img {
         width: 100%;
         border-radius: 10px;
         border: 1px solid #000000;
-    } 
+    }
 }
+
 @media (min-width: 801px) {
-    img{
+    img {
         width: 500px;
         border-radius: 10px;
         border: 1px solid #000000;
-    } 
+    }
 }
-form{
-    background: url("kot-prosit-est.jpg");
+/*start style forms*/
+form {
+    background: url("/Win-XP.jpg");
     background-size: 100%;
     background-blend-mode: multiply;
     background-color: #00000034;
- width: 250px;
- height: 250px;
+    width: 300px;
+
+    height: 170px;
     padding: 2%;
     border-radius: 10px;
     border: #000000 solid 1px;
@@ -86,53 +107,82 @@ form{
     font-style: normal;
     color: #000000;
     margin: 0px auto;
-  
-}
-footer img{
-    width: 100px;
-    border-radius: 10px;
-    border: 1px solid #000000;
-}
-.re{
-   color: #ffffff; 
-    width: 100%;
-    height: auto;
-    display: flex;
-    
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    text-align: center;
-}
-.re a{
-    color: #000000;
-}
-button{
-    
-    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
 
-}
-.uroks{
-    text-align: center;
-}
-h1{
-    text-align: center;
-}
-h2{
-    text-align: center;
-}
-
-.informer{
-    margin: 0px auto;
 }
 INPUT[type="text"] {
     background-color: #ffffff83;
     color: rgb(0, 0, 0);
     border-radius: 5px;
-   }
+    margin-left: 35px;
+
+}
 
 INPUT[type="number"] {
     background-color: #ffffff83;
     color: rgb(0, 0, 0);
     border-radius: 5px;
-   }
+    margin-left: 35px;
+}
+INPUT[type="radio"] {
+  margin-right: 5px;
+
+}
+INPUT[type="submit"] {
+    background-color: #ffffff00;
+    color: #ffffff;
+    border-radius: 5px;
+    border: #ffffff 1px solid;
+    margin-left: 75px;
+    width: 100px;
+}
+
+form label {
+    margin-left: 35px;
+    color: #ffffff;
+}
+/*end style forms*/
+footer img {
+    width: 100px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+}
+
+.re {
+    color: #ffffff;
+    width: 100%;
+    height: auto;
+    display: flex;
+
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.re a {
+    color: #000000;
+}
+
+button {
+
+    text-align: center;
+
+}
+
+.uroks {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+.informer {
+    margin: 0px auto;
+}
+
