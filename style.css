@@ -207,8 +207,7 @@ h2 {
     background: #3f3f3f7e;
 }
 .market a{
-
-    margin-left:100px;
+    display: block; text-align: center;
 } 
 .market img{
     border: none;
