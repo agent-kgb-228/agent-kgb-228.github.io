@@ -188,3 +188,30 @@ h2 {
     margin: 0px auto;
 }
 
+/*block market*/
+.market{
+    background: #3f3f3f7e;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    margin: 2px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.market h5, h6{
+    text-align: center;
+}
+.market p{
+    text-align: center;
+}
+.market-tovar{
+    background: #3f3f3f7e;
+}
+.market a{
+
+    margin-left:100px;
+} 
+.market img{
+    border: none;
+    border-radius: 0px;
+}
+/**/
