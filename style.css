@@ -36,12 +36,14 @@ header a {
 }
 
 main {
-     background-image: url("Win-XP.jpg");      
+     background-image: url("Win-XP.jpg"); 
+     background-blend-mode: multiply;
+ background-color: #0000008f;     
  background-position: center center;      
 background-repeat: no-repeat;      
 /* Фон зафиксирован в области просмотра и потому не двигается, когда высота контента превышает высоту изображения */   background-attachment: fixed;      
    background-size: cover;      
-  background-color: #464646; 
+ color: #ffffff;
   /*  background: rgb(255, 199, 0);
     background: linear-gradient(180deg, rgba(255, 199, 0, 1) 0%, rgba(245, 245, 245, 1) 100%);*/
     font-family: Arial, Helvetica, sans-serif;
@@ -92,7 +94,7 @@ footer a {
 }
 /*start style forms*/
 form {
-    background: url("/Win-XP.jpg");
+    background: url("/Wallpaper/Nature/img3.jpg");
     background-size: 100%;
     background-blend-mode: multiply;
     background-color: #00000034;
