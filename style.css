@@ -192,7 +192,7 @@ h2 {
 .market{
     background: #3f3f3f7e;
     border: 1px solid #ffffff;
-    border-radius: 5px;
+    border-radius: 15px;
     margin: 2px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -212,6 +212,6 @@ h2 {
 } 
 .market img{
     border: none;
-    border-radius: 0px;
+    border-radius: 10px;
 }
 /**/
