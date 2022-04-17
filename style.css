@@ -4,7 +4,13 @@
 }
 
 body {
-    background: #f5f5f5;
+    background-image: url("topol_M.jpg"); 
+    background-blend-mode: multiply;
+background-color: #0000008f;     
+background-position: center center;      
+background-repeat: no-repeat;      
+background-attachment: fixed;      
+  background-size: cover;  
 }
 
 header {
@@ -38,7 +44,7 @@ header a {
 main {
      background-image: url("Win-XP.jpg"); 
      background-blend-mode: multiply;
- background-color: #0000008f;     
+ background-color: #00000049;     
  background-position: center center;      
 background-repeat: no-repeat;      
  background-attachment: fixed;      
@@ -103,7 +109,7 @@ footer a {
 form {
     background: url("topol_M.jpg");
     background-blend-mode: multiply;
-    background-color: #0000008f;     
+    background-color: #00000000;     
     background-position: center center;      
    background-repeat: no-repeat;      
      
