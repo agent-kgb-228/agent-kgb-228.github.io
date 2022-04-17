@@ -36,7 +36,11 @@ header div {
     align-items: center;
     flex-wrap: wrap;
 }
-
+.iconka {
+    width: 17px;
+    border: none;
+    border-radius: 0px;
+}
 header a {
     text-decoration: none;
 }
