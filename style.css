@@ -41,7 +41,7 @@ main {
  background-color: #0000008f;     
  background-position: center center;      
 background-repeat: no-repeat;      
-/* Фон зафиксирован в области просмотра и потому не двигается, когда высота контента превышает высоту изображения */   background-attachment: fixed;      
+ background-attachment: fixed;      
    background-size: cover;      
  color: #ffffff;
   /*  background: rgb(255, 199, 0);
@@ -85,6 +85,7 @@ footer a {
         width: 100%;
         border-radius: 10px;
         border: 1px solid #000000;
+        width: 110%;  
     }
 }
 
@@ -94,16 +95,22 @@ footer a {
         border-radius: 10px;
         border: 1px solid #000000;
     }
+    form{
+        width: 500px;  
+    }
 }
 /*start style forms*/
 form {
-    background: url("/Wallpaper/Landscapes/img12.jpg");
-    background-size: 100%;
+    background: url("topol_M.jpg");
     background-blend-mode: multiply;
-    background-color: #00000034;
-    width: 300px;
+    background-color: #0000008f;     
+    background-position: center center;      
+   background-repeat: no-repeat;      
+     
+      background-size: cover; 
 
-    height: 170px;
+
+
     padding: 2%;
     border-radius: 10px;
     border: #000000 solid 1px;
@@ -119,7 +126,7 @@ INPUT[type="text"] {
     background-color: #00000044;
     color: rgb(255, 255, 255);
     border-radius: 5px;
-    margin-left: 35px;
+
     border-radius: 5px;
     border: #ffffff 1px solid;
     margin-bottom: 5px;
@@ -130,23 +137,12 @@ INPUT[type="number"] {
     background-color: #00000044;
     color: rgb(255, 255, 255);
     border-radius: 5px;
-    margin-left: 35px;
+
     border-radius: 5px;
     border: #ffffff 1px solid;
     text-align: center;
 }
-INPUT[type="radio"] {
-  margin-right: 5px;
 
-}
-INPUT[type="submit"] {
-    background-color: #ffffff00;
-    color: #ffffff;
-    border-radius: 5px;
-    border: #ffffff 1px solid;
-    margin-left: 75px;
-    width: 100px;
-}
 
 form label {
     margin-left: 35px;

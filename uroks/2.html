@@ -99,19 +99,19 @@
                 <input type="hidden" name="short-dest" value="Для развития сайта или на пивас админам" />
                 <input type="hidden" name="label" value="Для развития сайта или на пивас админам" />
                 <input type="hidden" name="quickpay-form" value="donate" />
-                <input type="text" name="targets" value="На чай админам" />
-                <input type="number" name="sum" value="21" data-type="number" />
+                <input type="text" class="form-control" name="targets" value="На пивас админам" />
+                <input type="number" class="form-control" name="sum" value="21" data-type="number" />
                 <br>
 
-                <input type="hidden" name="need-fio" value="true" />
-                <input type="hidden" name="need-email" value="true" />
+                <input type="hidden" name="need-fio" value="false" />
+                <input type="hidden" name="need-email" value="false" />
                 <input type="hidden" name="need-phone" value="false" />
                 <input type="hidden" name="need-address" value="false" />
-                <label><input type="radio" name="paymentType" value="PC" />ЮMoney</label>
+                <label><input type="radio" class="form-check-input" name="paymentType" value="PC" /> ЮMoney </label>
                 <br>
-                <label><input type="radio" name="paymentType" value="AC" />Картой МИР</label>
+                <label><input type="radio" class="form-check-input" name="paymentType" value="AC" /> МИР</label>
                 <br>
-                <input type="submit" value="Перевести" />
+                <input type="submit" class="btn btn-primary" value="Перевести" />
             </form>
 
             <hr>
