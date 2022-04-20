@@ -11,8 +11,66 @@ background-position: center center;
 background-repeat: no-repeat;      
 background-attachment: fixed;      
   background-size: cover;  
+  animation: ussr 18s infinite;
 }
+@keyframes ussr{
+    0%{
+        background-image: url("316039.jpg"); 
+        background-blend-mode: multiply;
+   
+    background-position: center center;      
+    background-repeat: no-repeat;      
+    background-attachment: fixed;      
+      background-size: cover;   
+    }
+    20%{
+        background-image: url("Stalin.jpg"); 
+        background-blend-mode: multiply;
+  
+    background-position: center center;      
+    background-repeat: no-repeat;      
+    background-attachment: fixed;      
+      background-size: cover;   
+    }
+    40%{
+        background-image: url("/fons/den-pobedi-plan-stalina.orig.jpg"); 
+        background-blend-mode: multiply;
+   
+    background-position: center center;      
+    background-repeat: no-repeat;      
+    background-attachment: fixed;      
+      background-size: cover;   
+    }
 
+    60%{
+        background-image: url("/fons/yuriy-gagarin-kosmonavt-letchik-124.jpg"); 
+        background-blend-mode: multiply;
+     
+    background-position: center center;      
+    background-repeat: no-repeat;      
+    background-attachment: fixed;      
+      background-size: cover;   
+    }
+  
+    80%{
+        background-image: url("/fons/2.jpg"); 
+        background-blend-mode: multiply;
+    
+    background-position: center center;      
+    background-repeat: no-repeat;      
+    background-attachment: fixed;      
+      background-size: cover;   
+    }
+   100%{
+        background-image: url("316039.jpg"); 
+        background-blend-mode: multiply;
+     
+    background-position: center center;      
+    background-repeat: no-repeat;      
+    background-attachment: fixed;      
+      background-size: cover;   
+    }
+}
 header {
     height: auto;
     background: #0000007e;
@@ -129,7 +187,7 @@ form {
       filter: alpha(Opacity=75);
       opacity: 0.76;
 
-
+animation: armi-of-russia 30s infinite;
     padding: 2%;
     border-radius: 10px;
     border: #000000 solid 1px;
@@ -140,6 +198,74 @@ form {
     margin: 0px auto;
     font-family: Arial, Helvetica, sans-serif;
 
+}
+@keyframes armi-of-russia{
+    0%{
+        background: url("topol_M.jpg"); 
+        background-blend-mode: multiply;
+        background-color: #00000000;     
+        background-position: center center;      
+       background-repeat: no-repeat;      
+         
+          background-size: cover; 
+          filter: alpha(Opacity=75);
+          opacity: 0.76;
+    }
+    20%{
+        background: url("s-400.jpg");
+        background-blend-mode: multiply;
+        background-color: #00000000;     
+        background-position: center center;      
+       background-repeat: no-repeat;      
+         
+          background-size: cover; 
+          filter: alpha(Opacity=75);
+          opacity: 0.76;
+    }
+    40%{
+         background: url("t-14.jpg");
+         background-blend-mode: multiply;
+         background-color: #00000000;     
+         background-position: center center;      
+        background-repeat: no-repeat;      
+          
+           background-size: cover; 
+           filter: alpha(Opacity=75);
+           opacity: 0.76;
+    }
+    60%{
+        background: url("btr-82.jpg");  
+        background-blend-mode: multiply;
+        background-color: #00000000;     
+        background-position: center center;      
+       background-repeat: no-repeat;      
+         
+          background-size: cover; 
+          filter: alpha(Opacity=75);
+          opacity: 0.76;
+    }
+    80%{
+        background: url("mi-26.jpg");
+        background-blend-mode: multiply;
+        background-color: #00000000;     
+        background-position: center center;      
+       background-repeat: no-repeat;      
+         
+          background-size: cover; 
+          filter: alpha(Opacity=75);
+          opacity: 0.76;
+    }
+    100%{
+        background: url("topol_M.jpg");
+        background-blend-mode: multiply;
+        background-color: #00000000;     
+        background-position: center center;      
+       background-repeat: no-repeat;      
+         
+          background-size: cover; 
+          filter: alpha(Opacity=75);
+          opacity: 0.76;
+    }
 }
 INPUT[type="text"] {
     background-color: #00000044;
