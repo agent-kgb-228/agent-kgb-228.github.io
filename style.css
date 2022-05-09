@@ -4,73 +4,16 @@
 }
 
 body {
-    background-image: url("316039.jpg"); 
+    background-image: url("35508587_0_0_2885_1623_1920x0_80_0_0_620bc93e8d61d7d55a18ce198c8cc4e2.jpg"); 
     background-blend-mode: multiply;
 background-color: #000000e0;     
 background-position: center center;      
 background-repeat: no-repeat;      
 background-attachment: fixed;      
   background-size: cover;  
-  animation: ussr 18s infinite;
+ 
 }
-@keyframes ussr{
-    0%{
-        background-image: url("316039.jpg"); 
-        background-blend-mode: multiply;
-   
-    background-position: center center;      
-    background-repeat: no-repeat;      
-    background-attachment: fixed;      
-      background-size: cover;   
-    }
-    20%{
-        background-image: url("Stalin.jpg"); 
-        background-blend-mode: multiply;
-  
-    background-position: center center;      
-    background-repeat: no-repeat;      
-    background-attachment: fixed;      
-      background-size: cover;   
-    }
-    40%{
-        background-image: url("/fons/den-pobedi-plan-stalina.orig.jpg"); 
-        background-blend-mode: multiply;
-   
-    background-position: center center;      
-    background-repeat: no-repeat;      
-    background-attachment: fixed;      
-      background-size: cover;   
-    }
 
-    60%{
-        background-image: url("/fons/663195264.jpg"); 
-        background-blend-mode: multiply;
-     
-    background-position: center center;      
-    background-repeat: no-repeat;      
-    background-attachment: fixed;      
-      background-size: cover;   
-    }
-  
-    80%{
-        background-image: url("/fons/2.jpg"); 
-        background-blend-mode: multiply;
-    
-    background-position: center center;      
-    background-repeat: no-repeat;      
-    background-attachment: fixed;      
-      background-size: cover;   
-    }
-   100%{
-        background-image: url("316039.jpg"); 
-        background-blend-mode: multiply;
-     
-    background-position: center center;      
-    background-repeat: no-repeat;      
-    background-attachment: fixed;      
-      background-size: cover;   
-    }
-}
 header {
     height: auto;
     background: #0000007e;
