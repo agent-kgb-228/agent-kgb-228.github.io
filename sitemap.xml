@@ -1,59 +1,24 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-		<!--	created with www.mysitemapgenerator.com	-->
-		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-	<loc>https://agent-kgb-228.github.io/</loc>
-	<lastmod>2022-04-01T17:45:36+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://agent-kgb-228.github.io/privacy/</loc>
-	<lastmod>2022-04-01T17:45:36+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://agent-kgb-228.github.io/uroks/</loc>
-	<lastmod>2022-04-01T17:45:36+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://agent-kgb-228.github.io/pay/</loc>
-	<lastmod>2022-04-01T17:45:36+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://agent-kgb-228.github.io/uroks/0.html</loc>
-	<lastmod>2022-04-01T17:45:39+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://agent-kgb-228.github.io/uroks/1.html</loc>
-	<lastmod>2022-04-01T17:45:39+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://agent-kgb-228.github.io/uroks/2.html</loc>
-	<lastmod>2022-04-01T17:45:39+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
-<url>
-	<loc>https://agent-kgb-228.github.io/pay/tarifs/</loc>
-	<lastmod>2022-04-01T17:45:39+01:00</lastmod>
-	<priority>0.6</priority>
-</url>
-<url>
-	<loc>https://agent-kgb-228.github.io/pay/kgb/uslugi.html</loc>
-	<lastmod>2022-04-01T17:45:39+01:00</lastmod>
-	<priority>0.6</priority>
-</url>
-<url>
-	<loc>https://agent-kgb-228.github.io/pay/kgb/imhhjb.html</loc>
-	<lastmod>2022-04-01T17:45:39+01:00</lastmod>
-	<priority>0.6</priority>
-</url>
-<url>
-	<loc>https://agent-kgb-228.github.io/uroks/index.html</loc>
-	<lastmod>2022-04-01T17:45:41+01:00</lastmod>
-	<priority>0.8</priority>
-</url>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Generated with https://sitemap-xml.ru-->
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd">
+  <url>
+    <loc>https://ru-stalin-ussr.ru/</loc>
+    <lastmod>2022-06-18T18:44:47+03:00</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ru-stalin-ussr.ru/privacy/</loc>
+    <lastmod>2022-06-18T18:44:47+03:00</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ru-stalin-ussr.ru/pay/</loc>
+    <lastmod>2022-06-18T18:44:47+03:00</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ru-stalin-ussr.ru/pay/tarifs/</loc>
+    <lastmod>2022-06-18T18:44:47+03:00</lastmod>
+    <priority>0.8</priority>
+  </url>
 </urlset>
