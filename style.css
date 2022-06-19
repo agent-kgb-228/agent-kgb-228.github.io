@@ -1,3 +1,4 @@
+@import url("https://old.ru-stalin-ussr.ru/russia/fonts/roboto/stylesheet.css");
 * {
     margin: 0%;
     padding: 0%;
@@ -22,7 +23,9 @@ header {
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Yandex Sans Display';
+    font-weight: bold;
+    font-style: normal;
     border-bottom: 1px solid black;
 }
 
@@ -87,7 +90,9 @@ footer {
    
     background: #D52B1E34;
 background: linear-gradient(0deg, #D52B1E34 0%, #D52B1E34 33%, #003aa634 33%, #003aa634 66%, #ffffff34 66%, #ffffff34 100%);
-    font-family: Arial, Helvetica, sans-serif;
+font-family: 'Yandex Sans Display';
+font-weight: bold;
+font-style: normal;
     border-top: 1px solid #000000;
     color: #ffffff;
 }
