@@ -131,13 +131,10 @@ form {
     background-blend-mode: multiply;
     background-color: #00000000;     
     background-position: center center;      
-   background-repeat: no-repeat;      
-     
-      background-size: cover; 
-      filter: alpha(Opacity=75);
-      opacity: 0.76;
-
-
+    background-repeat: no-repeat;      
+    background-size: cover; 
+    filter: alpha(Opacity=75);
+    opacity: 0.76;
     padding: 2%;
     border-radius: 10px;
     border: #000000 solid 1px;
@@ -147,14 +144,12 @@ form {
     color: #000000;
     margin: 0px auto;
     font-family: Arial, Helvetica, sans-serif;
-
 }
 
 INPUT[type="text"] {
     background-color: #00000044;
     color: rgb(255, 255, 255);
     border-radius: 5px;
-
     border-radius: 5px;
     border: #ffffff 1px solid;
     margin-bottom: 5px;
@@ -165,7 +160,6 @@ INPUT[type="number"] {
     background-color: #00000044;
     color: rgb(255, 255, 255);
     border-radius: 5px;
-
     border-radius: 5px;
     border: #ffffff 1px solid;
     text-align: center;
@@ -188,7 +182,6 @@ footer img {
     width: 100%;
     height: auto;
     display: flex;
-
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
@@ -200,9 +193,7 @@ footer img {
 }
 
 button {
-
     text-align: center;
-
 }
 
 .uroks {
