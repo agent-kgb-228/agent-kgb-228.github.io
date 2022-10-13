@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form method="POST" action="https://yoomoney.ru/quickpay/confirm.xml">
+        <input type="hidden" name="receiver" value="4100116774485382" />
+        <input type="hidden" name="formcomment" value="Для развития сайта или на пивас админам" />
+        <input type="hidden" name="short-dest" value="Для развития сайта или на пивас админам" />
+        <input type="hidden" name="label" value="Для развития сайта или на пивас админам" />
+        <input type="hidden" name="quickpay-form" value="donate" />
+        <input type="text" class="form-control" name="targets" value="На пивас админам" />
+        <input type="number" class="form-control" name="sum" value="22" data-type="number" />
+        <br>
+
+        <input type="hidden" name="need-fio" value="false" />
+        <input type="hidden" name="need-email" value="false" />
+        <input type="hidden" name="need-phone" value="false" />
+        <input type="hidden" name="need-address" value="false" />
+        <label><input type="radio" class="form-check-input" name="paymentType" value="PC" />ЮMoney </label>
+        <br>
+        <label><input type="radio" class="form-check-input" name="paymentType" value="AC" />Картой</label>
+        <br>
+        <input type="submit" class="btn btn-primary" value="Перевести" />
+    </form>
+</body>
+</html>
