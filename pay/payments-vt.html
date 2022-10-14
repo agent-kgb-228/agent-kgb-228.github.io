@@ -24,6 +24,12 @@
             var s = d.getElementsByTagName(t)[0]; s.parentNode.insertBefore(j, s);
         })(document, "script", document.location.protocol);
     </script>
+    <style>
+        .button-wrapper{
+    display: flex;	
+    justify-content: center;	
+  }
+    </style>
 </head>
 
 <body>
@@ -59,7 +65,7 @@
                 <br>
                 <label><input type="radio" class="form-check-input" name="paymentType" value="AC" /> Картой </label>
                 <br>
-                <input type="submit" class="btn btn-primary" value="Перевести" />
+              <div class="button-wrapper">  <input type="submit" class="btn btn-primary" value="Перевести" /></div>
             </form>
             <br>
 <img src="/kopat.jpg" alt="" >
