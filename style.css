@@ -5,7 +5,7 @@
 }
 
 body {
-    background-image: url("/Win-XP.jpg"); 
+    background-image: url("/img/Win-XP.jpg"); 
     background-blend-mode: multiply;
 background-color: #000000e0;     
 background-position: center center;      
@@ -88,7 +88,7 @@ main a {
 
 footer {
    
-    background: #D52B1E34;
+    background: #91919134;
 
 font-family: 'Yandex Sans Display';
 font-weight: bold;
@@ -237,3 +237,4 @@ h2 {
     border-radius: 10px;
 }
 /**/
+
