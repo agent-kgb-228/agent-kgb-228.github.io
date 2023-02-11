@@ -16,8 +16,8 @@ background-attachment: fixed;
 }
 
 header {
-    height: 50px;
-    background: #91919134;
+    height: auto;
+    background: #eb7c0f;
     display: flex;
     font-size: 20px;
     justify-content: space-around;
@@ -51,12 +51,12 @@ header a {
 }
 header a:hover{
     text-decoration: none;
-    color: #ff8000;
+    color: #000000;
     transition: 3s;
 }
 main {
   
-    background: #00000044;    
+    background:  #06162f00;    
  color: #ffffff;
   /*  background: rgb(255, 199, 0);
     background: linear-gradient(180deg, rgba(255, 199, 0, 1) 0%, rgba(245, 245, 245, 1) 100%);*/
@@ -88,7 +88,7 @@ main a {
 
 footer {
    
-    background: #91919134;
+    background: #224f3b;
 
 font-family: 'Yandex Sans Display';
 font-weight: bold;
@@ -213,7 +213,7 @@ h2 {
 
 /*block market*/
 .market{
-    background: #3f3f3f7e;
+    background: #3f3f3fc4;
     border: 1px solid #ffffff;
     border-radius: 15px;
     margin: 2px;
@@ -223,7 +223,7 @@ h2 {
 }
 .market:hover{
     text-decoration: none;
-    background-color: #ff8000;
+    background-color: #3f3f3fc4;
     transition: 5s;
     animation: marketik 3s infinite;
 }
@@ -248,13 +248,13 @@ h2 {
 }
 @keyframes marketik {
     0%{
-        background: #3f3f3f7e;
+        color: #ffffff;
     }
     50%{
-        background: #fc7000;
+        color: #ff8000;
     }
     100%{
-        background: #3f3f3f7e;
+        color: #ffffff;
     }
 }
 /**/
