@@ -5,7 +5,7 @@
 }
 
 body {
-    background-image: url("/img/Win-XP.jpg"); 
+    background-image: url("/img/fon-slider-1.jpg"); 
     background-blend-mode: multiply;
 background-color: #000000e0;     
 background-position: center center;      
@@ -16,8 +16,8 @@ background-attachment: fixed;
 }
 
 header {
-    height: auto;
-    background: #00000086;
+    height: 50px;
+    background: #91919134;
     display: flex;
     font-size: 20px;
     justify-content: space-around;
@@ -47,7 +47,7 @@ header div {
 }
 header a {
     text-decoration: none;
-    color: #ff0000;
+    color: #ffffff;
 }
 header a:hover{
     text-decoration: none;
@@ -219,6 +219,13 @@ h2 {
     margin: 2px;
     padding-top: 10px;
     padding-bottom: 10px;
+    
+}
+.market:hover{
+    text-decoration: none;
+    background-color: #ff8000;
+    transition: 5s;
+    animation: marketik 3s infinite;
 }
 .market h5, h6{
     text-align: center;
@@ -235,6 +242,20 @@ h2 {
 .market img{
     border: none;
     border-radius: 10px;
+    border: 1px solid #000000;
+    filter: alpha(Opacity=1);
+    opacity: 1
+}
+@keyframes marketik {
+    0%{
+        background: #3f3f3f7e;
+    }
+    50%{
+        background: #fc7000;
+    }
+    100%{
+        background: #3f3f3f7e;
+    }
 }
 /**/
 
