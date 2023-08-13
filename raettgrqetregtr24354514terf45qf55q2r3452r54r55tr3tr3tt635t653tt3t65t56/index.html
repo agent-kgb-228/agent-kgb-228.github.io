@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Умножение числа</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/russia.png" type="png">
+    <style>
+        input {
+            width: 100%;
+            height: auto;
+        }
+
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background: #dddddd;
+            color: #000000;
+        }
+    </style>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <header>
+        <a href="/raettgrqetregtr24354514terf45qf55q2r3452r54r55tr3tr3tt635t653tt3t65t56/">главная</a>
+    </header>
+    <main>
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Количество</th>
+                        <th>Итого</th>
+                        <th>На бумагу</th>
+                        <th>На краску черную</th>
+                        <th>На краску цветную</th>
+                        <th><b>Профит</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Распечатка черно белая с одной стороны:
+                        </td>
+                        <td>
+                            <input class="form-control" type="number" id="RCH1" min="0" value="0">
+                        </td>
+                        <td>
+                            <span id="resultRCH1"></span>
+                        </td>
+                        <td>
+                            <span id="resultBumagaRCH1"></span>
+                        </td>
+                        <td>
+                            <span id="resultKraskaRCH1"></span>
+                        </td>
+                        <td>
+                            -
+                        </td>
+                        <td>
+                            <span id="profitRCH1"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Распечатка черно белая с двух сторон:
+                        </td>
+                        <td>
+                            <input class="form-control" type="number" id="RCH2" min="0" value="0">
+                        </td>
+                        <td>
+                            <span id="resultRCH2"></span>
+                        </td>
+                        <td>
+                            <span id="resultBumagaRCH2"></span>
+                        </td>
+                        <td>
+                            <span id="resultKraskaRCH2"></span>
+                        </td>
+                        <td>
+                            -
+                        </td>
+                        <td>
+                            <span id="profitRCH2"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Распечатка цветная с одной стороны:
+                        </td>
+                        <td>
+                            <input class="form-control" type="number" id="RCV1" min="0" value="0">
+                        </td>
+                        <td>
+                            <span id="resultRCV1"></span>
+                        </td>
+                        <td>
+                            <span id="resultBumagaRCV1"></span>
+                        </td>
+                        <td>
+                            <span id="resultKraskaRCV1"></span>
+                        </td>
+                        <td>
+                            <span id="resultKraskaCVRCV1"></span>
+                        </td>
+                        <td>
+                            <span id="profitRCV1"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Распечатка цветная одной стороны:
+                        </td>
+                        <td>
+                            <input class="form-control"s type="number" id="RCV2" min="0" value="0">
+                        </td>
+                        <td>
+                            <span id="resultRCV2"></span>
+                        </td>
+                        <td>
+                            <span id="resultBumagaRCV2"></span>
+                        </td>
+                        <td>
+                            <span id="resultKraskaRCV2"></span>
+                        </td>
+                        <td>
+                            <span id="resultKraskaCVRCV2"></span>
+                        </td>
+                        <td>
+                            <span id="profitRCV2"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Итого</b>
+                        </td>
+                        <td>
+                            <p id="Kolichestvo"></p>
+                        </td>
+                        <td>
+                            <p id="result"> </p>
+                        </td>
+                        <td>
+                            <p id="resultB"> </p>
+                        </td>
+                        <td>
+                            <p id="resultK"> </p>
+                        </td>
+                        <td>
+                            <p id="resultKCV"> </p>
+                        </td>
+                        <td>
+                            <p id="profit"> </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <button class="btn btn-primary" onclick="multiplyNumber()">Рассчитать</button>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+
+            &copy; 2022-2023 <!--<b>Самозанятый Петренко Захар Александрович</b>--
+            <br>
+            <b>ИНН 614907967417</b>
+            <br>
+            <b>+7-(993)-459-53-08</b>-->
+
+            <a href="https://vk.com/z.petr2022" target="_blank"><img src="/gggames/snake/VKM.png" alt=""
+                    class="iconka"></a>
+            <hr>
+            <div class="re">
+                <a href="/price list/">Прайс лист</a>
+                <a href="/oferta/">Оферта</a>
+                <a href="/privacy-policy/">Политика конфиденциальности</a>
+                <a href="https://vk.me/club199124251" target="_blank"> Обратная свзяь </a>
+            </div>
+            <div class="re">
+            <a href="/passwordgen/">Генератор пароля</a>
+            <a href="/shifrator/">Шифратор и дешифратор</a>
+            </div>
+            <hr>
+            <span id="sputnik-informer"></span>
+
+
+        </div>
+        <br>
+        <!--jdsfhdsfsdhggh-->
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
