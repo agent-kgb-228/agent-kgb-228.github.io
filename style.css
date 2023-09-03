@@ -126,6 +126,11 @@ footer a:hover {
     }
 }
 /*start style forms*/
+.logo{
+width: 25px;
+border-radius: 10px;
+border: 0px none;
+}
 form {
    
     background-blend-mode: multiply;
