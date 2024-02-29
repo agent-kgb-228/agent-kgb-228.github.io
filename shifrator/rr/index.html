@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dinosaur Game</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f7f7f7;
+    }
+
+    #game-board {
+      position: relative;
+      width: 600px;
+      height: 200px;
+      border: 1px solid #000;
+    }
+
+    #dinosaur {
+      position: absolute;
+      bottom: 0;
+      left: 50px;
+      width: 50px;
+      height: 50px;
+      background: green;
+    }
+
+    .obstacle {
+      position: absolute;
+      bottom: 0;
+      width: 20px;
+      height: 20px;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-board">
+    <div id="dinosaur"></div>
+  </div>
+
+  <script>
+    const gameBoard = document.getElementById('game-board');
+    const dinosaur = document.getElementById('dinosaur');
+    let isJumping = false;
+
+    function jump() {
+      if (!isJumping) {
+        isJumping = true;
+        let position = 0;
+        let jumpInterval = setInterval(() => {
+          if (position === 150) {
+            clearInterval(jumpInterval);
+            let fallInterval = setInterval(() => {
+              if (position === 0) {
+                clearInterval(fallInterval);
+                isJumping = false;
+              } else {
+                position -= 10;
+                dinosaur.style.bottom = position + 'px';
+              }
+            }, 20);
+          } else {
+            position += 10;
+            dinosaur.style.bottom = position + 'px';
+          }
+        }, 20);
+      }
+    }
+
+    function createObstacle() {
+      const obstacle = document.createElement('div');
+      obstacle.classList.add('obstacle');
+      let obstaclePosition = 600;
+      obstacle.style.left = obstaclePosition + 'px';
+      gameBoard.appendChild(obstacle);
+      let moveObstacle = setInterval(() => {
+        if (obstaclePosition < 0) {
+          clearInterval(moveObstacle);
+          gameBoard.removeChild(obstacle);
+        } else {
+          obstaclePosition -= 10;
+          obstacle.style.left = obstaclePosition + 'px';
+        }
+      }, 20);
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (event.code === 'Space') {
+        jump();
+      }
+    });
+
+    setInterval(createObstacle, 2000);
+  </script>
+</body>
+</html>
