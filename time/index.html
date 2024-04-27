@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>World Clock</title>
+    <script>
+        function updateClock() {
+            var moscowTime = new Date(new Date().toLocaleString("en-US", {timeZone: "Europe/Moscow"}));
+            var kaliningradTime = new Date(new Date().toLocaleString("en-US", {timeZone: "Europe/Kaliningrad"}));
+            var kamchatkaTime = new Date(new Date().toLocaleString("en-US", {timeZone: "Asia/Kamchatka"}));
+            
+            document.getElementById("moscow").innerHTML = moscowTime.toLocaleTimeString();
+            document.getElementById("kaliningrad").innerHTML = kaliningradTime.toLocaleTimeString();
+            document.getElementById("kamchatka").innerHTML = kamchatkaTime.toLocaleTimeString();
+        }
+        
+        setInterval(updateClock, 1000);
+    </script>
+</head>
+<body>
+    <h1>World Clock</h1>
+    <div>
+        <h2>Moscow Time:</h2>
+        <p id="moscow"></p>
+    </div>
+    <div>
+        <h2>Kaliningrad Time:</h2>
+        <p id="kaliningrad"></p>
+    </div>
+    <div>
+        <h2>Kamchatka Time:</h2>
+        <p id="kamchatka"></p>
+    </div>
+</body>
+</html>
