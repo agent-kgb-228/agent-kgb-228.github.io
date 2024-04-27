@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>World Clock</title>
+    <script>
+        function updateClock() {
+            fetch('https://worldtimeapi.org/api/timezone/Europe/Moscow')
+                .then(response => response.json())
+                .then(data => {
+                    var moscowTime = new Date(data.datetime);
+                    document.getElementById("moscow").innerHTML = moscowTime.toLocaleTimeString();
+                });
+
+            fetch('https://worldtimeapi.org/api/timezone/Europe/Kaliningrad')
+                .then(response => response.json())
+                .then(data => {
+                    var kaliningradTime = new Date(data.datetime);
+                    document.getElementById("kaliningrad").innerHTML = kaliningradTime.toLocaleTimeString();
+                });
+
+            fetch('https://worldtimeapi.org/api/timezone/Asia/Kamchatka')
+                .then(response => response.json())
+                .then(data => {
+                    var kamchatkaTime = new Date(data.datetime);
+                    document.getElementById("kamchatka").innerHTML = kamchatkaTime.toLocaleTimeString();
+                });
+        }
+        
+        setInterval(updateClock, 1000);
+    </script>
+</head>
+<body>
+    <h1>World Clock</h1>
+    <div>
+        <h2>Moscow Time:</h2>
+        <p id="moscow"></p>
+    </div>
+    <div>
+        <h2>Kaliningrad Time:</h2>
+        <p id="kaliningrad"></p>
+    </div>
+    <div>
+        <h2>Kamchatka Time:</h2>
+        <p id="kamchatka"></p>
+    </div>
+</body>
+</html>
