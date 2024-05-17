@@ -1,4 +1,4 @@
-let bymaga = 0.60
+let bymaga = 0.70
 let kraskaCH = 2.0
 let kraskaCV = 3.0
 let tax = 0.04
