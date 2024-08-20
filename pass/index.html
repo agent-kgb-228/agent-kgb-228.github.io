@@ -39,8 +39,8 @@
 <label for="passport-number">Номер паспорта:</label><br>
 <input type="text" id="passport-number"><br><br>
 
-<label for="photo">Фото (URL):</label><br>
-<input type="text" id="photo"><br><br>
+<label for="photo">Фото (выберите файл):</label><br>
+<input type="file" id="photo" accept="image/*"><br><br>
 
 <label for="region-code">Код региона (60 или 71):</label><br>
 <input type="text" id="region-code"><br><br>
@@ -66,10 +66,10 @@
         const fio = document.getElementById('fio').value;
         const dob = document.getElementById('dob').value;
         const passportNumber = document.getElementById('passport-number').value;
-        const photo = document.getElementById('photo').value;
+        const photoInput = document.getElementById('photo');
         const regionCode = document.getElementById('region-code').value;
 
-        if (!fio || !dob || !passportNumber || !photo || !regionCode) {
+        if (!fio || !dob || !passportNumber || !photoInput.files[0] || !regionCode) {
             alert('Пожалуйста, заполните все поля.');
             return;
         }
@@ -85,15 +85,20 @@
         document.getElementById('fio-display').textContent = fio;
         document.getElementById('dob-display').textContent = dob;
 
-        const img = document.createElement('img');
-        img.src = photo;
-        img.alt = "Фото пользователя";
-        img.width = 35;
-        img.height = 45;
-        document.getElementById('photo-display').innerHTML = "";
-        document.getElementById('photo-display').appendChild(img);
-
-        document.getElementById('passport').style.display = 'block';
+        // Показать фото
+        const file = photoInput.files[0];
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.alt = "Фото пользователя";
+            img.width = 35;
+            img.height = 45;
+            document.getElementById('photo-display').innerHTML = "";
+            document.getElementById('photo-display').appendChild(img);
+            document.getElementById('passport').style.display = 'block';
+        }
+        reader.readAsDataURL(file);
 
         // Генерация QR-кода
         const qrCode = new QRCodeStyling({
