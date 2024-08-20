@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор прибыли</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+**Калькулятор прибыли**
+
+<table>
+    <thead>
+        <tr>
+            <th>Номер п/п</th>
+            <th>Наименование услуги</th>
+            <th>Цена за шт</th>
+            <th>Количество</th>
+            <th>Итоговая сумма</th>
+            <th>Расход на бумагу</th>
+            <th>Расход на краску черно-белую</th>
+            <th>Расход на краску цветную</th>
+            <th>Налог</th>
+            <th>Чистая прибыль</th>
+        </tr>
+    </thead>
+    <tbody id="serviceTableBody">
+        <tr>
+            <td>1</td>
+            <td>Распечатка черно-белая с одной стороны</td>
+            <td id="price1">10</td>
+            <td><input type="number" id="quantity1" value="0" onchange="calculate()"></td>
+            <td id="total1">0</td>
+            <td id="paperCost1">0</td>
+            <td id="bwInkCost1">0</td>
+            <td id="colorInkCost1">0</td>
+            <td id="tax1">0</td>
+            <td id="profit1">0</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Распечатка черно-белая с двух сторон</td>
+            <td id="price2">15</td>
+            <td><input type="number" id="quantity2" value="0" onchange="calculate()"></td>
+            <td id="total2">0</td>
+            <td id="paperCost2">0</td>
+            <td id="bwInkCost2">0</td>
+            <td id="colorInkCost2">0</td>
+            <td id="tax2">0</td>
+            <td id="profit2">0</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Распечатка цветная с одной стороны</td>
+            <td id="price3">20</td>
+            <td><input type="number" id="quantity3" value="0" onchange="calculate()"></td>
+            <td id="total3">0</td>
+            <td id="paperCost3">0</td>
+            <td id="bwInkCost3">0</td>
+            <td id="colorInkCost3">0</td>
+            <td id="tax3">0</td>
+            <td id="profit3">0</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Распечатка цветная с двух сторон</td>
+            <td id="price4">25</td>
+            <td><input type="number" id="quantity4" value="0" onchange="calculate()"></td>
+            <td id="total4">0</td>
+            <td id="paperCost4">0</td>
+            <td id="bwInkCost4">0</td>
+            <td id="colorInkCost4">0</td>
+            <td id="tax4">0</td>
+            <td id="profit4">0</td>
+        </tr>
+    </tbody>
+</table>
+
+**Итоги**
+
+<table>
+    <thead>
+        <tr>
+            <th>Итоговое количество товаров</th>
+            <th>Итоговая сумма</th>
+            <th>Итоговая сумма без налога</th>
+            <th>Сам налог</th>
+            <th>Расходы на краску</th>
+            <th>Расходы на бумагу</th>
+        </tr>
+    </thead>
+    <tbody id="summaryTableBody">
+        <tr>
+            <td id="totalQuantity">0</td>
+            <td id="totalAmount">0</td>
+            <td id="amountWithoutTax">0</td>
+            <td id="totalTax">0</td>
+            <td id="totalInkExpenses">0</td>
+            <td id="totalPaperExpenses">0</td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+function calculate() {
+    const quantities = [
+        parseInt(document.getElementById('quantity1').value) || 0,
+        parseInt(document.getElementById('quantity2').value) || 0,
+        parseInt(document.getElementById('quantity3').value) || 0,
+        parseInt(document.getElementById('quantity4').value) || 0,
+    ];
+
+    const prices = [
+        calculatePrice(quantities[0], 10, 9.75, 9.50),
+        calculatePrice(quantities[1], 15, 14.75, 14),
+
+        calculatePrice(quantities[2], 20, 19.75, 19.50),
+        calculatePrice(quantities[3], 25, 24, 23),
+    ];
+
+    const totals = calculations(quantities, prices);
+
+    updateTable(totals);
+    updateSummary(totals);
+}
+
+function calculatePrice(quantity, priceLessThan10, price10to19, price20AndMore) {
+    if (quantity < 10) return priceLessThan10;
+    if (quantity < 20) return price10to19;
+    return price20AndMore;
+}
+
+function calculations(quantities, prices) {
+    let totalData = {
+        totalAmounts: [],
+        totalPapers: [],
+        totalBwInks: [],
+        totalColorInks: [],
+        totalProfits: [],
+        totalTax: 0,
+    };
+
+    quantities.forEach((quantity, index) => {
+        let totalAmount = quantity * prices[index];
+        let paperCost = quantity * 1;
+        let bwInkCost = index % 2 === 0 ? (quantity * 1) : (quantity * 2);
+        let colorInkCost = index < 2 ? (quantity * 3) : (quantity * 6);
+
+        totalData.totalAmounts.push(totalAmount);
+        totalData.totalPapers.push(paperCost);
+        totalData.totalBwInks.push(bwInkCost);
+        totalData.totalColorInks.push(colorInkCost);
+
+        let taxableBase = totalAmount - (paperCost + bwInkCost + colorInkCost);
+        let taxRate = 0.04; // Для физлиц
+        let tax = taxableBase * taxRate;
+        totalData.totalTax += tax;
+
+        let profit = totalAmount - (paperCost + bwInkCost + colorInkCost + tax);
+        totalData.totalProfits.push(profit);
+    });
+
+    return totalData;
+}
+
+function updateTable(totals) {
+    totals.totalAmounts.forEach((total, index) => {
+        document.getElementById(`total${index + 1}`).innerText = total;
+        document.getElementById(`paperCost${index + 1}`).innerText = totals.totalPapers[index];
+        document.getElementById(`bwInkCost${index + 1}`).innerText = totals.totalBwInks[index];
+        document.getElementById(`colorInkCost${index + 1}`).innerText = totals.totalColorInks[index];
+        document.getElementById(`tax${index + 1}`).innerText = (totals.totalTax * 0.04).toFixed(2); // Налог для физлиц
+        document.getElementById(`profit${index + 1}`).innerText = totals.totalProfits[index];
+    });
+}
+
+function updateSummary(totals) {
+    const totalQuantity = totals.totalAmounts.reduce((a, b) => a + b, 0);
+    const totalAmount = totals.totalAmounts.reduce((a, b) => a + b, 0);
+    const totalPaperExpenses = totals.totalPapers.reduce((a, b) => a + b, 0);
+    const totalInkExpenses = totals.totalBwInks.reduce((a, b) => a + b, 0) + totals.totalColorInks.reduce((a, b) => a + b, 0);
+
+    document.getElementById('totalQuantity').innerText = totalQuantity;
+    document.getElementById('totalAmount').innerText = totalAmount;
+    document.getElementById('amountWithoutTax').innerText = (totalAmount - totals.totalTax).toFixed(2);
+    document.getElementById('totalTax').innerText = totals.totalTax.toFixed(2);
+    document.getElementById('totalInkExpenses').innerText = totalInkExpenses;
+    document.getElementById('totalPaperExpenses').innerText = totalPaperExpenses;
+}
+</script>
+
+</body>
+</html>
