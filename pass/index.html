@@ -4,71 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Игровой Паспорт</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 20px;
         }
         .passport {
-            border: 2px solid black;
+            width: 400px;
+            border: 1px solid #000;
             padding: 20px;
-            width: 300px;
-            margin: 20px auto;
+            margin-top: 20px;
         }
-        .passport img {
-            width: 100px;
-            height: 100px;
+        .photo {
+            width: 35px;
+            height: 45px;
+            border: 1px solid #000;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        #qr-code {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-<div>
-    <h2>Создание Игрового Паспорт</h2>
-    <input type="text" id="name" placeholder="ФИО" required><br><br>
-    <input type="date" id="dob" placeholder="Дата рождения" required><br><br>
-    <input type="file" id="photo" accept="image/*" required><br><br>
-    <button id="generate">Сгенерировать Паспорт</button>
-</div>
+<h1>Создать Игровой Паспорт</h1>
+<label for="fio">ФИО:</label><br>
+<input type="text" id="fio"><br><br>
 
-<div class="passport" id="passport" style="display: none;">
-    <h2>Паспорт Игры</h2>
+<label for="dob">Дата рождения:</label><br>
+<input type="date" id="dob"><br><br>
+
+<label for="passport-number">Номер паспорта:</label><br>
+<input type="text" id="passport-number"><br><br>
+
+<label for="photo">Фото (URL):</label><br>
+<input type="text" id="photo"><br><br>
+
+<label for="region-code">Код региона (60 или 71):</label><br>
+<input type="text" id="region-code"><br><br>
+
+<button onclick="generatePassport()">Сгенерировать Паспорт</button>
+
+<div class="passport" id="passport" style="display:none;">
+    <h3>Паспорт игрока</h3>
     <p>Выдан ГУ МВД Игры</p>
-    <p><strong>Дата выдачи:</strong> <span id="issueDate"></span></p>
-    <p><strong>СЕРИЯ И НОМЕР:</strong> 1234 567890</p>
-    <p><strong>ФИО:</strong> <span id="fullName"></span></p>
-    <img id="userPhoto" src="" alt="Фото пользователя">
-    <p><strong>Дата рождения:</strong> <span id="birthDate"></span></p>
-    <div id="qrcode"></div>
+    <p>Дата выдачи: <span id="issue-date"></span></p>
+    <p>СЕРИЯ: <span id="passport-series"></span></p>
+    <p>Номер: <span id="passport-number-display"></span></p>
+    <p>ФИО: <span id="fio-display"></span></p>
+    <div class="photo" id="photo-display"></div>
+    <p>Дата рождения: <span id="dob-display"></span></p>
 </div>
 
+<div id="qr-code"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qr-code-styling/1.4.0/qr-code-styling.min.js"></script>
 <script>
-    document.getElementById('generate').onclick = function() {
-        const name = document.getElementById('name').value;
+    function generatePassport() {
+        const fio = document.getElementById('fio').value;
         const dob = document.getElementById('dob').value;
-        const issueDate = new Date().toLocaleDateString();
-        
-        // Handle photo upload
-        const photoInput = document.getElementById('photo');
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            document.getElementById('userPhoto').src = e.target.result;
-        };
-        reader.readAsDataURL(photoInput.files[0]);
+        const passportNumber = document.getElementById('passport-number').value;
+        const photo = document.getElementById('photo').value;
+        const regionCode = document.getElementById('region-code').value;
 
-        // Set details in passport
-        document.getElementById('fullName').innerText = name;
-        document.getElementById('birthDate').innerText = dob;
-        document.getElementById('issueDate').innerText = issueDate;
+        if (!fio || !dob || !passportNumber || !photo || !regionCode) {
+            alert('Пожалуйста, заполните все поля.');
+            return;
+        }
 
-        // Generate QR code
-        const qrData = `${name}, ${issueDate}`;
-        $('#qrcode').empty().qrcode(qrData);
+        const currentYear = new Date().getFullYear().toString().slice(-2);
+        const series = regionCode + currentYear;
 
-        // Show passport
+        const today = new Date().toLocaleDateString('ru-RU');
+
+        document.getElementById('issue-date').textContent = today;
+        document.getElementById('passport-series').textContent = series;
+        document.getElementById('passport-number-display').textContent = passportNumber;
+        document.getElementById('fio-display').textContent = fio;
+        document.getElementById('dob-display').textContent = dob;
+
+        const img = document.createElement('img');
+        img.src = photo;
+        img.alt = "Фото пользователя";
+        img.width = 35;
+        img.height = 45;
+        document.getElementById('photo-display').innerHTML = "";
+        document.getElementById('photo-display').appendChild(img);
+
         document.getElementById('passport').style.display = 'block';
-    };
+
+        // Генерация QR-кода
+        const qrCode = new QRCodeStyling({
+            width: 200,
+            height: 200,
+            type: "svg",
+            data: `${fio} - ${today}`,
+        });
+
+        qrCode.append(document.getElementById("qr-code"));
+    }
 </script>
 
 </body>
