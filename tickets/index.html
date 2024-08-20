@@ -9,18 +9,10 @@
             font-family: Arial, sans-serif;
         }
         .wagon {
+            margin: 15px;
             border: 1px solid #ccc;
-            margin: 10px;
             padding: 10px;
-        }
-        .seat {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            margin: 5px;
-            text-align: center;
-            line-height: 30px;
-            cursor: pointer;
+            border-radius: 5px;
         }
         .occupied {
             background-color: red;
@@ -29,146 +21,147 @@
         .available {
             background-color: green;
             color: white;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 
 <h1>Продажа ЖД билетов</h1>
-<h3>Поезд 6142С Горная - Болотная</h3>
+<p>Поезд: 6142С</p>
+
+<h3>Выберите станции:</h3>
+<label for="depart">Станция отправления:</label>
+<select id="depart">
+    <option value="Горная">Горная</option>
+    <option value="Дача">Дача</option>
+    <option value="Еловая">Еловая</option>
+    <option value="Болотная">Болотная</option>
+</select>
+
+<label for="arrive">Станция прибытия:</label>
+<select id="arrive">
+    <option value="Горная">Горная</option>
+    <option value="Дача">Дача</option>
+    <option value="Еловая">Еловая</option>
+    <option value="Болотная">Болотная</option>
+</select>
+
 <div id="seats-container"></div>
 
-<h3>Выберите место</h3>
-<p id="message"></p>
+<button onclick="restart()">Обновить места</button>
 
 <script>
-    const numWagons = 9;
-    const numCoupe = 2;
-    const seatsPerCoupe = 2;
-    const numPlatzkartSeats = 6;
+    const totalWagons = 9;
+    const compartments = 8; // 8 купе
+    const seatsInCompartment = 2; // 2 места в купе
+    const seatsInPlatzkart = 6; // 6 мест в плацкарте
 
-    // Создание структуры для вагонов и мест
-    let train = [];
+    // Создаем массив для хранения состояния мест (true - занято, false - свободно)
+    const seats = {
+        compartments: Array(totalWagons - 1).fill(null).map(() => Array(compartments * seatsInCompartment).fill(false)),
+        platzkart: Array(seatsInPlatzkart).fill(false)
+    };
 
-    for (let i = 0; i < numWagons; i++) {
-        if (i < numWagons - 1) {
-            // Создание вагонов с купе
-            let coupe = [];
-            for (let j = 0; j < numCoupe; j++) {
-                coupe.push(Array(seatsPerCoupe).fill(false)); // false означает, что место свободно
-            }
-            train.push(coupe);
-        } else {
-            // Создание плацкарта
-            train.push(Array(numPlatzkartSeats).fill(false)); // все места свободны
-        }
-    }
+    const seatsContainer = document.getElementById('seats-container');
 
     function renderSeats() {
-        const container = document.getElementById('seats-container');
-        container.innerHTML = '';
-        
-        train.forEach((wagon, wagonIndex) => {
+        seatsContainer.innerHTML = '';
+        for (let i = 0; i < totalWagons; i++) {
             const wagonDiv = document.createElement('div');
-            wagonDiv.className = 'wagon';
-            wagonDiv.innerHTML = `<strong>Вагон ${wagonIndex + 1}</strong>`;
-            
-            if (wagonIndex < numWagons - 1) {
-                wagon.forEach((coupe, coupeIndex) => {
-                    const coupeDiv = document.createElement('div');
-                    coupeDiv.innerHTML = `<strong>Купе ${coupeIndex + 1}: </strong>`;
-                    
-                    coupe.forEach((occupied, seatIndex) => {
-                        const seatDiv = document.createElement('div');
-                        seatDiv.innerText = 'К';
-                        seatDiv.className = occupied ? 'seat occupied' : 'seat available';
-                        seatDiv.onclick = () => selectSeat(wagonIndex, coupeIndex, seatIndex);
-                        coupeDiv.appendChild(seatDiv);
-                    });
-                    wagonDiv.appendChild(coupeDiv);
-                });
-            } else {
-                wagon.forEach((occupied, seatIndex) => {
-                    const seatDiv = document.createElement('div');
-                    seatDiv.innerText = 'П';
-                    seatDiv.className = occupied ? 'seat occupied' : 'seat available';
-                    seatDiv.onclick = () => selectSeat(wagonIndex, null, seatIndex);
-                    wagonDiv.appendChild(seatDiv);
-                });
+            wagonDiv.classList.add('wagon');
+            wagonDiv.appendChild(document.createTextNode(`Вагон ${i + 1}`));
+
+            if (i < totalWagons - 1) { // Купе
+                for (let j = 0; j < compartments; j++) {
+                    const compartmentDiv = document.createElement('div');
+                    compartmentDiv.innerHTML = `Купе ${j + 1}: `;
+                    for (let k = 0; k < seatsInCompartment; k++) {
+                        const seatIndex = j * seatsInCompartment + k;
+                        const seatButton = document.createElement('button');
+                        seatButton.innerText = (k + 1);
+                        seatButton.className = seats.compartments[i][seatIndex] ? 'occupied' : 'available';
+                        if (!seats.compartments[i][seatIndex]) { // Если место свободно
+                            seatButton.onclick = () => buySeat(i + 1, j + 1, k + 1);
+                        }
+                        compartmentDiv.appendChild(seatButton);
+                    }
+                    wagonDiv.appendChild(compartmentDiv);
+                }
+            } else { // Плацкарт
+                const platzkartDiv = document.createElement('div');
+                platzkartDiv.innerHTML = `Плацкарт: `;
+                for (let l = 0; l < seatsInPlatzkart; l++) {
+                    const seatButton = document.createElement('button');
+                    seatButton.innerText = (l + 1);
+                    seatButton.className = seats.platzkart[l] ? 'occupied' : 'available';
+                    if (!seats.platzkart[l]) { // Если место свободно
+                        seatButton.onclick = () => buyPlatzkart(l + 1);
+
+                    }
+                    platzkartDiv.appendChild(seatButton);
+                }
+                wagonDiv.appendChild(platzkartDiv);
             }
 
-            container.appendChild(wagonDiv);
-        });
+            seatsContainer.appendChild(wagonDiv);
+        }
     }
 
-    function selectSeat(wagonIndex, coupeIndex, seatIndex) {
-        let isPlatzkart = (wagonIndex === numWagons - 1);
-
-        if (isPlatzkart) {
-            if (train[wagonIndex][seatIndex]) {
-                alert('Это место занято!');
-            } else {
-                // Предложение о покупке плацкарта
-                train[wagonIndex][seatIndex] = true;
-                alert(`Вы купили плацкартное место в вагоне ${wagonIndex + 1}, место ${seatIndex + 1}.`);
-                renderSeats();
-            }
-
+    function buySeat(wagon, compartment, seat) {
+        const compartmentIndex = (compartment - 1) * seatsInCompartment + (seat - 1);
+        if (seats.compartments[wagon - 1][compartmentIndex]) {
+            alert('Это место уже занято');
         } else {
-            if (train[wagonIndex][coupeIndex][seatIndex]) {
-                alert('Это место занято!');
-            } else {
-                // Проверка на возможность покупки купе
-                let coupeOccupied = train[wagonIndex][coupeIndex].every(occupied => occupied);
-                if (coupeOccupied) {
-                    alert('Все места в этом купе заняты!');
-                    return;
-                }
-                train[wagonIndex][coupeIndex][seatIndex] = true;
-                alert(`Вы купили место в вагоне ${wagonIndex + 1}, купе ${coupeIndex + 1}, место ${seatIndex + 1}.`);
-                renderSeats();
-            }
-        }
+            const departureStation = document.getElementById('depart').value;
+            const arrivalStation = document.getElementById('arrive').value;
 
-        checkAllSold();
+            seats.compartments[wagon - 1][compartmentIndex] = true;
+            alert(`Вы купили билет:\nОткуда: ${departureStation}\nКуда: ${arrivalStation}\nВагон ${wagon}, Купе ${compartment}, Место ${seat}`);
+            renderSeats();
+            checkAllSold();
+        }
+    }
+
+    function buyPlatzkart(seat) {
+        if (seats.platzkart[seat - 1]) {
+            alert('Это место уже занято');
+        } else {
+            const departureStation = document.getElementById('depart').value;
+            const arrivalStation = document.getElementById('arrive').value;
+
+            seats.platzkart[seat - 1] = true;
+            alert(`Вы купили билет:\nОткуда: ${departureStation}\nКуда: ${arrivalStation}\nВагон 9, Плацкарт, Место ${seat}`);
+            renderSeats();
+            checkAllSold();
+        }
     }
 
     function checkAllSold() {
-        const allSold = train.flat().every((wagon) => {
-            // Если это плацкарт, возвращаем true если все заняты
-            if (Array.isArray(wagon)) {
-                return wagon.every(seat => seat);
+        const allSold = () => {
+            for (let wagon of seats.compartments) {
+                if (wagon.some(seat => !seat)) {
+                    return false;
+                }
             }
-            // Если это купе, возвращаем true если все заняты
-            return wagon; // для последнего вагона с плацкартом
-        });
+            return seats.platzkart.every(seat => seat);
+        };
 
-        if (allSold) {
-            const shouldRestart = confirm('Все места выкуплены! Перезапустить?');
-            if (shouldRestart) {
-                resetTrain();
-            }
+        if (allSold()) {
+            alert('Все места проданы! Перезапустите программу для новой продажи.');
         }
     }
 
-    function resetTrain() {
-        train = [];
-        for (let i = 0; i < numWagons; i++) {
-            if (i < numWagons - 1) {
-                let coupe = [];
-                for (let j = 0; j < numCoupe; j++) {
-                    coupe.push(Array(seatsPerCoupe).fill(false));
-                }
-                train.push(coupe);
-            } else {
-                train.push(Array(numPlatzkartSeats).fill(false));
-            }
+    function restart() {
+        for (let wagon of seats.compartments) {
+            wagon.fill(false);
         }
+        seats.platzkart.fill(false);
         renderSeats();
     }
 
-    // Инициализация
     renderSeats();
 </script>
+
 </body>
 </html>
