@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Продажа ЖД Билетов</title>
+    <style>
+        .seat {
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 3px;
+            cursor: pointer;
+        }
+        .occupied {
+            background-color: red;
+            color: white;
+        }
+        .available {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>Продажа ЖД Билетов</h1>
+    <div id="train"></div>
+    <div id="message"></div>
+    <button onclick="restart()">Перезапустить</button>
+
+    <script>
+        const train = {
+            carriages: [
+                { type: 'К', seats: Array(4).fill(true) }, // 1-4 купе
+                { type: 'К', seats: Array(4).fill(true) }, // 2-4 купе
+                { type: 'К', seats: Array(4).fill(true) }, // 3-4 купе
+                { type: 'К', seats: Array(4).fill(true) }, // 4-4 купе
+                { type: 'К', seats: Array(4).fill(true) }, // 5-4 купе
+                { type: 'К', seats: Array(4).fill(true) }, // 6-4 купе
+                { type: 'К', seats: Array(4).fill(true) }, // 7-4 купе
+                { type: 'К', seats: Array(4).fill(true) }, // 8-4 купе
+                { type: 'П', seats: Array(6).fill(true) }  // 9-6 плацкарт
+            ]
+        };
+
+        const stations = ["Горная", "Дача", "Пляжная", "Каменная", "Болотная"];
+        let allOccupied = false;
+
+        function renderTrain() {
+            const trainDiv = document.getElementById('train');
+            trainDiv.innerHTML = '';
+
+            for (let i = 0; i < train.carriages.length; i++) {
+                const carriage = document.createElement('div');
+                carriage.innerHTML = `<strong>Вагон ${i + 1} (${train.carriages[i].type}):</strong><br/>`;
+
+                train.carriages[i].seats.forEach((occupied, index) => {
+                    const seat = document.createElement('div');
+                    seat.className = occupied ? 'seat available' : 'seat occupied';
+                    seat.innerHTML = occupied ? `Место ${index + 1}` : `Занято`;
+                    seat.onclick = () => bookSeat(i, index);
+                    carriage.appendChild(seat);
+                });
+
+                trainDiv.appendChild(carriage);
+            }
+        }
+
+        function bookSeat(carriageIndex, seatIndex) {
+            if (train.carriages[carriageIndex].seats[seatIndex]) {
+                const stationFrom = prompt(`Выберите станцию отправления: ${stations.join(', ')}`);
+                const stationTo = prompt(`Выберите станцию прибытия: ${stations.join(', ')}`);
+
+                if (stationFrom && stationTo) {
+                    train.carriages[carriageIndex].seats[seatIndex] = false;
+                    document.getElementById('message').innerText = `Вы купили билет! Вагон: ${carriageIndex + 1}, Место: ${seatIndex + 1}`;
+                    checkAllOccupied();
+                    renderTrain();
+                }
+            } else {
+                alert("Место занято!");
+            }
+        }
+
+        function checkAllOccupied() {
+            allOccupied = train.carriages.every(carriage => carriage.seats.every(seat => !seat));
+            if (allOccupied) {
+                alert("Все места выкуплены. Пожалуйста, перезапустите программу.");
+            }
+        }
+
+        function restart() {
+            train.carriages.forEach(carriage => {
+                carriage.seats.fill(true);
+            });
+            allOccupied = false;
+            document.getElementById('message').innerText = '';
+            renderTrain();
+        }
+
+        renderTrain();
+    </script>
+</body>
+</html>
