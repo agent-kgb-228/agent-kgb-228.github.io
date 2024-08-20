@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игровой Паспорт</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .passport {
+            border: 2px solid black;
+            padding: 20px;
+            width: 300px;
+            margin: 20px auto;
+        }
+        .passport img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <h2>Создание Игрового Паспорт</h2>
+    <input type="text" id="name" placeholder="ФИО" required><br><br>
+    <input type="date" id="dob" placeholder="Дата рождения" required><br><br>
+    <input type="file" id="photo" accept="image/*" required><br><br>
+    <button id="generate">Сгенерировать Паспорт</button>
+</div>
+
+<div class="passport" id="passport" style="display: none;">
+    <h2>Паспорт Игры</h2>
+    <p>Выдан ГУ МВД Игры</p>
+    <p><strong>Дата выдачи:</strong> <span id="issueDate"></span></p>
+    <p><strong>СЕРИЯ И НОМЕР:</strong> 1234 567890</p>
+    <p><strong>ФИО:</strong> <span id="fullName"></span></p>
+    <img id="userPhoto" src="" alt="Фото пользователя">
+    <p><strong>Дата рождения:</strong> <span id="birthDate"></span></p>
+    <div id="qrcode"></div>
+</div>
+
+<script>
+    document.getElementById('generate').onclick = function() {
+        const name = document.getElementById('name').value;
+        const dob = document.getElementById('dob').value;
+        const issueDate = new Date().toLocaleDateString();
+        
+        // Handle photo upload
+        const photoInput = document.getElementById('photo');
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('userPhoto').src = e.target.result;
+        };
+        reader.readAsDataURL(photoInput.files[0]);
+
+        // Set details in passport
+        document.getElementById('fullName').innerText = name;
+        document.getElementById('birthDate').innerText = dob;
+        document.getElementById('issueDate').innerText = issueDate;
+
+        // Generate QR code
+        const qrData = `${name}, ${issueDate}`;
+        $('#qrcode').empty().qrcode(qrData);
+
+        // Show passport
+        document.getElementById('passport').style.display = 'block';
+    };
+</script>
+
+</body>
+</html>
